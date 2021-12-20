@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper px-32">
-    <router-link to="/home" class="text-black font-Kumbh-Sans text-3xl">Create new</router-link>
+    <the-header></the-header>
     <router-view v-slot="slotProps">
         <transition name="route" mode="in-out">
           <component :is="slotProps.Component"></component>
@@ -9,10 +9,8 @@
   </div>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+import TheHeader from './components/header/TheHeader.vue';
 </script>
 
 <style>
