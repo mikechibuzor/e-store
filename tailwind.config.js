@@ -30,7 +30,8 @@ module.exports = {
       screens: {
         "custom-breakpoint": "1440px",
         "custom-breakpoint1": "1600px",
-        "custom-breakpoint2": "1900px",
+        "custom-breakpoint2": "1680px",
+        "custom-breakpoint3": "1900px",
       },
     },
   },

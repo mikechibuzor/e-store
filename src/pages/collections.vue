@@ -1,33 +1,29 @@
 <template>
-  <p>{{ state.title  }}</p>
+  <div class="wrapper px-32 custom-breakpoint1:px-48">
+   <product-container v-for="product in state.allProducts" :key=product.id :product="product"></product-container>
+  </div>
 </template>
 
 <script setup>
-import { onMounted, reactive } from 'vue';
+import { onMounted, reactive, computed } from 'vue';
 import { useStore } from 'vuex';
+import ProductContainer from '../components/product-container/ProductContainer.vue';
 
 // accessing store
 const store = useStore();
 
 // reactive variables
 const state = reactive({
-  title: null,
+  allProducts: null,
 })
 
 // computed methods
-// const dispData = computed( ()=> store.getters['products/getProducts'][0].title );
 
-// onMounted(() => {
-//      store.dispatch('products/getAllProducts');
-//     //  console.log(store);
-//      setTimeout(()=>{
-//        console.log(store.getters['products/getProducts'][0].title);
-//      },3000)
-//     })
+
 onMounted( 
   async ()=>{
     await store.dispatch('products/getAllProducts');
-    state.title = store.getters['products/getProducts'][0].title;
+    state.allProducts = store.getters['products/getProducts'];
   })
 </script>
 

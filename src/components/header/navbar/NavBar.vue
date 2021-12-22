@@ -13,20 +13,20 @@
       </div>
         <!-- nav-list Desktop -->
         <ul class="fixed hidden xl:static  xl:flex">
-            <li class="px-4">
-                <router-link to="/collections" title="Collections" class="relative text-center cursor-pointer inline-block text-dark-grayish-blue">Collections</router-link>
+            <li class="px-3 custom-breakpoint2:px-6">
+                <router-link to="/collections" title="Collections" class="relative text-center custom-breakpoint2:text-lg cursor-pointer inline-block text-dark-grayish-blue">Collections</router-link>
             </li>
-            <li class="px-4">
-                <router-link to="/men" title="Men" class="relative text-center cursor-pointer inline-block text-dark-grayish-blue">Men</router-link>
+            <li class="px-3 custom-breakpoint2:px-6">
+                <router-link to="/men" title="Men" class="relative text-center custom-breakpoint2:text-lg cursor-pointer inline-block text-dark-grayish-blue">Men</router-link>
             </li>
-            <li class="px-4">
-                <router-link to="/women" title="Women" class="relative text-center cursor-pointer inline-block  text-dark-grayish-blue">Women</router-link>
+            <li class="px-3 custom-breakpoint2:px-6">
+                <router-link to="/women" title="Women" class="relative text-center custom-breakpoint2:text-lg cursor-pointer inline-block  text-dark-grayish-blue">Women</router-link>
             </li>
-            <li class="px-4">
+            <li class="px-3 custom-breakpoint2:px-6">
                 <router-link to="/about" title="About" class="relative hover:font-bold text-center inline-block cursor-pointer  text-dark-grayish-blue">About</router-link>
             </li>
-            <li class="px-4">
-                <router-link to="/contact" title="Contact" class="relative text-center cursor-pointer inline-block text-dark-grayish-blue">Contact</router-link>
+            <li class="px-3 custom-breakpoint2:px-6">
+                <router-link to="/contact" title="Contact" class="relative text-center custom-breakpoint2:text-lg cursor-pointer inline-block text-dark-grayish-blue">Contact</router-link>
             </li>
         </ul> 
 
@@ -51,13 +51,9 @@
                 </ul>  
             </div>
         </transition>
-         
-
-
   </nav>
 </template>
 <script setup>
-// import HamburgerButton from './hamburger/HamburgerButton.vue';
 
 import { ref } from 'vue';
 
