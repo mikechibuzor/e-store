@@ -31,7 +31,7 @@
         </ul> 
 
         <transition name="fade">
-            <div v-if="!menuOpen" class="menu-overlay fixed xl:hidden left-0 top-0 bottom-0 right-0">
+            <div v-if="!menuOpen" class="menu-overlay z-20 fixed xl:hidden left-0 top-0 bottom-0 right-0">
                 <ul class="bg-white pt-20 h-screen w-4/6 font-Kumbh-Sans">
                 <li class="px-4">
                     <router-link to="/collections" title="Collections" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">Collections</router-link>
