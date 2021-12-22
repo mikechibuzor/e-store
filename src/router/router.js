@@ -27,6 +27,10 @@ const router = createRouter({
       path: "/women",
       component: women,
     },
+    {
+      path: "/about",
+      component: about,
+    },
   ],
 });
 

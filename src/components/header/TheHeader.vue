@@ -1,5 +1,5 @@
 <template>
-  <header class="flex justify-between border-b-2 pt-6 pb-7 border-light-grayish-blue">
+  <header class="pl-14 pr-8 md:px-8 xl:px-32 flex justify-between shadow xl:shadow-none xl:border-b-2 pt-6 pb-7 xl:border-light-grayish-blue">
       <!-- left section of header -->
       <section class="flex items-center">
           <the-logo></the-logo>

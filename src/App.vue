@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper px-32">
+  <div class="wrapper">
     <the-header></the-header>
     <router-view v-slot="slotProps">
         <transition name="route" mode="in-out">

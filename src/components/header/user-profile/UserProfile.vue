@@ -1,5 +1,5 @@
 <template>
-  <div class="user-profile cursor-pointer h-12 ml-10">
+  <div class="user-profile cursor-pointer h-6 xl:h-12 ml-4 xl:ml-10">
       <img src="../../../assets/images/image-avatar.png" class="h-full w-full" alt="">
   </div>
 </template>
