@@ -1,5 +1,5 @@
 <template>
-  <header class="ml-14 mr-8 md:mx-8 xl:mx-32 custom-breakpoint1:mx-48 flex justify-between shadow xl:shadow-none xl:border-b-2 pt-6 pb-7 xl:border-light-grayish-blue">
+  <header class="ml-14 mr-8 md:mx-8 xl:mx-32 custom-breakpoint1:mx-48 flex justify-between xl:border-b-2 pt-6 pb-7 xl:border-light-grayish-blue">
       <!-- left section of header -->
       <section class="flex items-center">
           <the-logo></the-logo>

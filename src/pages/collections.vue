@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper px-32 custom-breakpoint1:px-48">
+  <div class="wrapper xl:px-32 custom-breakpoint1:px-48">
    <product-container v-for="product in state.allProducts" :key=product.id :product="product"></product-container>
   </div>
 </template>
