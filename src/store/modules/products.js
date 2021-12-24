@@ -25,6 +25,10 @@ const mutations = {
   setProducts(state, products) {
     state.products = products;
   },
+  decrementProductInventory(state, { id }) {
+    const product = state.products.find((product) => product.id === id);
+    product.inventory--;
+  },
 };
 
 export default {

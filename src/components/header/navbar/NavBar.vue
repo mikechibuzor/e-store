@@ -30,24 +30,25 @@
             </li>
         </ul> 
 
+        <!-- nav-list Mobile -->
         <transition name="fade">
             <div v-if="!menuOpen" class="menu-overlay z-20 fixed xl:hidden left-0 top-0 bottom-0 right-0">
                 <ul class="bg-white pt-20 h-screen w-4/6 font-Kumbh-Sans">
-                <li class="px-4">
-                    <router-link to="/collections" title="Collections" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">Collections</router-link>
-                </li>
-                <li class="px-4">
-                    <router-link to="/men" title="Men" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">Men</router-link>
-                </li>
-                <li class="px-4">
-                    <router-link to="/women" title="Women" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">Women</router-link>
-                </li>
-                <li class="px-4">
-                    <router-link to="/about" title="About" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">About</router-link>
-                </li>
-                <li class="px-4">
-                    <router-link to="/contact" title="Contact" class="mb-4 font-bold text-center cursor-pointer inline-block font-Kumbh-Sans text-black">Contact</router-link>
-                </li>
+                  <li class="px-4">
+                      <router-link to="/collections" title="Collections" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">Collections</router-link>
+                  </li>
+                  <li class="px-4">
+                      <router-link to="/men" title="Men" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">Men</router-link>
+                  </li>
+                  <li class="px-4">
+                      <router-link to="/women" title="Women" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">Women</router-link>
+                  </li>
+                  <li class="px-4">
+                      <router-link to="/about" title="About" class="mb-4 font-bold text-center cursor-pointer inline-block text-black">About</router-link>
+                  </li>
+                  <li class="px-4">
+                      <router-link to="/contact" title="Contact" class="mb-4 font-bold text-center cursor-pointer inline-block font-Kumbh-Sans text-black">Contact</router-link>
+                  </li>
                 </ul>  
             </div>
         </transition>
@@ -103,6 +104,13 @@ a.router-link-active::after{
 
 .fade-leave-active{
     animation: fade .3s linear alternate-reverse;
+}
+
+.hamburger-button{
+  z-index: 201;
+}
+.menu-overlay{
+  z-index: 200;
 }
 
 @keyframes fade{

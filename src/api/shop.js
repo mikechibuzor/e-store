@@ -15,6 +15,7 @@ const _products = [
       "image-product-3.jpg",
       "image-product-4.jpg",
     ],
+    inventory: 5,
   },
 ];
 

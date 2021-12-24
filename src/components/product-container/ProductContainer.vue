@@ -1,9 +1,9 @@
 <template>
-   <div class="product-container relative grid xl:grid-cols-2 xl:pl-16 custom-breakpoint:pl-10">
+   <div class="product-container relative z-10 grid xl:grid-cols-2 xl:pl-16 custom-breakpoint:pl-10">
       <div class="first-half relative ">
         <div class="main-display cursor-pointer shadow xl:rounded-xl xl:mt-16 custom-breakpoint:mt-24 flex items-center"  @click="toggleModal">
             <div class="img xl:rounded-xl xl:h-height55 custom-breakpoint:h-height50  overflow-hidden">
-                <img class="h-full w-full" :src="getImgUrl" alt="">
+                <img class="h-full w-full object-cover" :src="getImgUrl" alt="">
             </div>
         </div>
         <div class="thumbnails hidden xl:flex justify-between pt-7 custom-breakpoint:pt-9">
@@ -24,7 +24,7 @@
             </div>
         </div>
       </div>
-      <div class="second-half mt-6 px-4 xl:px-0 xl:mt-24 custom-breakpoint:mt-40">
+      <div class="second-half  mt-6 px-4 xl:px-0 xl:mt-24 custom-breakpoint:mt-40">
           <h4 class="text-xs font-bold tracking-wider text-primary-orange-1 mb-2.5 xl:mb-4 custom-breakpoint2:text-base custom-breakpoint2:mb-6">SNEAKER COMPANY</h4>
           <h1 class="text-3xl xl:text-5xl font-bold font-Kumbh-Sans custom-breakpoint2:text-6xl">{{ product.title }}</h1>
           <p class="my-3 xl:my-6 text-sm xl:text-base custom-breakpoint2:my-10 text-dark-grayish-blue custom-breakpoint:text-lg font-Kumbh-Sans custom-breakpoint2:text-lg custom-breakpoint:w-4/5">
@@ -34,7 +34,7 @@
           <h5 class="text-sm xl:text-base line-through custom-breakpoint2:text-lg font-medium font-Kumbh-Sans text-dark-grayish-blue mt-2 custom-breakpoint:mt-4">${{ product.price.toFixed(2) }}</h5>
           <div class="buttons pb-10 xl:pb-0 w-full grid gap-y-4 xl:flex items-center mt-6 custom-breakpoint:mt-8">
               <div class="counter xl:mr-3 custom-breakpoint:mr-5">
-                  <p class="flex items-center px-4 rounded-lg shadow-sm py-3 custom-breakpoint:py-3.5 bg-light-grayish-blue w-full xl:w-40 justify-between">
+                  <p class="flex items-center px-4 rounded-lg shadow-sm py-3.5 xl:py-3 custom-breakpoint:py-3.5 bg-light-grayish-blue w-full xl:w-40 justify-between">
                       <span class="decrease cursor-pointer inline-block">                          
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="#FF7E1B" viewBox="0 0 24 24" stroke="#FF7E1B">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />
@@ -48,7 +48,7 @@
                       </span>
                   </p>
               </div>
-              <button class="add-to-cart py-3 custom-breakpoint:py-3.5 custom-breakpoint:px-20 px-16 text-white flex items-center justify-center xl:justify-start bg-primary-orange-1 rounded-lg shadow-sm">
+              <button class="add-to-cart active:scale-90 transition-all duration-300 hover:opacity-70 py-3.5 xl:py-3 custom-breakpoint:py-3.5 custom-breakpoint:px-20 px-16 text-white flex items-center justify-center xl:justify-start bg-primary-orange-1 rounded-lg shadow-sm" @click="addProductToCart(product)">
                   <span class="mr-3">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -100,6 +100,7 @@
 
 <script setup>
 import { onMounted, computed, ref } from 'vue';
+import { useStore } from 'vuex';
 // props
 const props = defineProps({
     product:{
@@ -109,6 +110,9 @@ const props = defineProps({
         }
     }
 });
+
+// accessing store
+const store = useStore();
 
 // reactive variable
 const imageIndex = ref(0);
@@ -137,21 +141,32 @@ const nextDisplay =()=>{
     }
 }
 const toggleModal = ()=>{
+    // so the modal only shows on desktop element
+    if(document.documentElement.offsetWidth < 768){
+        return;
+    }
     openModal.value = !openModal.value;
+}
+const addProductToCart = (prod)=>{
+  store.dispatch('cart/addProductToCart',prod);
 }
 
 // lifecycle hooks
-onMounted(()=>{
-    console.log(props.product);
-})
+// onMounted(()=>{
+   
+// })
 </script>
 
 <style scoped>
-button .add-to-cart{
-    box-shadow: 2px 2px 8px 4px #FF7E1B89;
+.product-container{
+    overscroll-behavior-y: contain;
+    overflow-y: auto;
+}
+button.add-to-cart{
+    box-shadow: 1px 1px 12px 2px #FF7E1B56;
 }
 .first-half{
-    width: 73%;
+    width: 70%;
 }
 
 .active-thumb-nail{
@@ -161,7 +176,6 @@ button .add-to-cart{
 
 .single-thumb{
     width: 4.7rem;
-    /* height: 4.5rem; */
 }
 .modal-overlay{
     background: rgba(0, 0, 0, .7);
