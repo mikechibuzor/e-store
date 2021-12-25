@@ -1,5 +1,5 @@
 import shop from "../../api/shop";
-import nested from "./nested";
+// import nested from "./nested";
 
 // initial state
 // shape: [{ id, quantity }]
@@ -118,7 +118,4 @@ export default {
   getters,
   actions,
   mutations,
-  modules: {
-    nested,
-  },
 };

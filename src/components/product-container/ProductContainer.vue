@@ -1,14 +1,14 @@
 <template>
-   <div class="product-container relative z-10 grid xl:grid-cols-2 xl:pl-16 custom-breakpoint:pl-10">
+   <div class="product-container relative z-10 grid xl:grid-cols-2 mb-8 xl:mb-5 xl:pl-16 custom-breakpoint:pl-10">
       <div class="first-half relative ">
         <div class="main-display cursor-pointer shadow xl:rounded-xl xl:mt-16 custom-breakpoint:mt-24 flex items-center"  @click="toggleModal">
-            <div class="img xl:rounded-xl xl:h-height55 custom-breakpoint:h-height50  overflow-hidden">
+            <div class="img xl:rounded-xl xl:h-height55 object-cover custom-breakpoint:h-height50  overflow-hidden">
                 <img class="h-full w-full object-cover" :src="getImgUrl" alt="">
             </div>
         </div>
         <div class="thumbnails hidden xl:flex justify-between pt-7 custom-breakpoint:pt-9">
             <div v-for="(image, index) in product.images" :key="image" :class="{'active-thumb-nail': index === imageIndex }" class="single-thumb bg-white cursor-pointer hover:opacity-60 border rounded-lg overflow-hidden" @click="changeMainDisplayImage(index)">
-                <img :src="`/images/${image}`" class="h-full w-full" alt="">
+                <img :src="`/images/${image}`" class="h-full w-full object-cover" alt="">
             </div>
         </div>
         <div class="main-display-controllers xl:hidden z-30 absolute top-[43%] w-full flex items-center justify-between">
@@ -73,12 +73,12 @@
                 </div>
                 <div class="main-display shadow rounded-xl mt-16 custom-breakpoint:mt-24 flex items-center">
                     <div class="img rounded-xl h-height70 custom-breakpoint:h-height60  overflow-hidden">
-                        <img class="h-full w-full" :src="getImgUrl" alt="">
+                        <img class="h-full w-full object-cover" :src="getImgUrl" alt="">
                     </div>
                 </div>
                 <div class="thumbnails px-8 flex justify-between pt-7 custom-breakpoint:pt-9">
                     <div v-for="(image, index) in product.images" :key="image" :class="{'active-thumb-nail': index === imageIndex }" class="single-thumb cursor-pointer hover:opacity-60 border rounded-lg overflow-hidden" @click="changeMainDisplayImage(index)">
-                        <img :src="`/images/${image}`" class="h-full w-full" alt="">
+                        <img :src="`/images/${image}`" class="h-full w-full object-cover" alt="">
                     </div>
                 </div>
                 <div class="main-display-controllers z-30 absolute top-[43%] w-full flex items-center justify-between">
@@ -201,7 +201,9 @@ button.add-to-cart{
 .modal-overlay{
     background: rgba(0, 0, 0, .7);
 }
-
+.modal{
+  width: 35%;
+}
 .previous:hover,
 .next:hover{
      box-shadow: 2px 2px 4px #FF7E1B22;

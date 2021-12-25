@@ -1,7 +1,7 @@
 <template>
-  <div class="cart-item flex">
+  <div class="cart-item flex mb-4">
       <div class="product-image mr-3 h-12 w-12 flex-shrink-0 flex-grow-0 overflow-hidden bg-primary-orange-pale rounded-md">
-          <img :src="getImgUrl" class="object-cover" alt="">
+          <img :src="getImgUrl" class="object-cover h-full w-full" alt="">
       </div>
       <div class="product-title text-sm xl:text-xs flex-shrink-0 flex-grow-0 w-[70%] mr-1 font-Kumbh-Sans ">
           <p class="text-gray-400 overflow-hidden whitespace-nowrap mb-1 text-ellipsis"> {{ item.title }} </p>
