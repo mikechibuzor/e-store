@@ -100,7 +100,7 @@
 </template>
 
 <script setup>
-import { onMounted, computed, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
 
 // props
@@ -172,10 +172,6 @@ const decreaseProductQuantity = (prod)=>{
   store.dispatch('cart/decrementItemQuantity', prod);
 }
 
-// lifecycle hooks
-onMounted(()=>{
-   console.log(props.product);
-})
 </script>
 
 <style scoped>
@@ -200,6 +196,9 @@ button.add-to-cart{
 }
 .modal-overlay{
     background: rgba(0, 0, 0, .7);
+    z-index: 3000;
+    overscroll-behavior-y: contain;
+    overflow-y: auto;
 }
 .modal{
   width: 35%;

@@ -17,14 +17,14 @@ import TheHeader from './components/header/TheHeader.vue';
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 .route-enter-from{
   opacity: 0;
-  transform: translateY(-.4rem);
+  /* transform: translateY(-.4rem); */
 }
 .route-leave-to{
   opacity: 0;
-  transform: translateY(4rem);
+  /* transform: translateY(4rem); */
 }
 .route-enter-active{
-  transition: all .3s ease-out;
+  transition: all .3s ease-in-out;
 }
 .route-leave-active{
     transition: all .3s ease-in;
@@ -32,7 +32,7 @@ import TheHeader from './components/header/TheHeader.vue';
 .route-enter-to,
 .route-leave-from{
   opacity: 1;
-  transform: translateY(0);
+  /* transform: translateY(0); */
 }
 
 </style>

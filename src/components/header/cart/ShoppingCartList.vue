@@ -15,7 +15,11 @@
           </ul>
             <!-- checkout -->
             <section class="w-full px-4 py-4 xl:py-3">
-                <button class="text-white text-sm font-bold font-Kumbh-Sans rounded-lg px-8 flex items-center justify-center py-3 bg-primary-orange-1 w-full">Checkout</button>
+                <router-link to="/checkout">
+                    <button class="text-white text-sm font-bold font-Kumbh-Sans rounded-lg px-8 flex items-center justify-center py-3 bg-primary-orange-1 w-full" >
+                        Checkout
+                    </button>
+                </router-link>
             </section>
       </section>
 
@@ -26,7 +30,7 @@
 <script setup>
 
 import { useStore } from 'vuex';
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 import CartItem from './CartItem.vue';
 
 // accessing store
@@ -37,13 +41,7 @@ const products = computed(()=>{
     return store.getters['cart/cartProducts'];
 })
 
-const total = computed(()=>{
-    store.getters['cart/cartTotalPrice'];
-});
 
-onMounted(()=>{
-    // console.log(store.getters['cart/cartProducts']);
-})
 </script>
 
 <style scoped>

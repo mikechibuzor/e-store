@@ -6,6 +6,7 @@ import collections from "../pages/collections.vue";
 import contact from "../pages/contact.vue";
 import men from "../pages/men.vue";
 import women from "../pages/women.vue";
+import checkout from "../pages/checkout.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -30,6 +31,10 @@ const router = createRouter({
     {
       path: "/about",
       component: about,
+    },
+    {
+      path: "/checkout",
+      component: checkout,
     },
   ],
 });

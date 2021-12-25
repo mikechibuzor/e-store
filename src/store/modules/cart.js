@@ -28,7 +28,10 @@ const getters = {
 
   cartTotalPrice: (state, getters) => {
     return getters.cartProducts.reduce((total, product) => {
-      return total + product.price * product.quantity;
+      return (
+        total +
+        Math.floor(product.price - product.price * (product.discount / 100))
+      );
     }, 0);
   },
 };
