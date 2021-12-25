@@ -79,6 +79,15 @@ const mutations = {
     });
   },
 
+  removeProductFromCart(state, { id }) {
+    state.items = state.items.filter((item) => item.id !== id);
+    commit(
+      "products/resetProductInventory",
+      { id: product.id },
+      { root: true }
+    );
+  },
+
   incrementItemQuantity(state, { id }) {
     const cartItem = state.items.find((item) => item.id === id);
     cartItem.quantity++;

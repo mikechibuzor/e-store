@@ -24,6 +24,7 @@
             </div>
         </div>
       </div>
+     
       <div class="second-half  mt-6 px-4 xl:px-0 xl:mt-24 custom-breakpoint:mt-40">
           <h4 class="text-xs font-bold tracking-wider text-primary-orange-1 mb-2.5 xl:mb-4 custom-breakpoint2:text-base custom-breakpoint2:mb-6">SNEAKER COMPANY</h4>
           <h1 class="text-3xl xl:text-5xl font-bold font-Kumbh-Sans custom-breakpoint2:text-6xl">{{ product.title }}</h1>
@@ -35,13 +36,13 @@
           <div class="buttons pb-10 xl:pb-0 w-full grid gap-y-4 xl:flex items-center mt-6 custom-breakpoint:mt-8">
               <div class="counter xl:mr-3 custom-breakpoint:mr-5">
                   <p class="flex items-center px-4 rounded-lg shadow-sm py-3.5 xl:py-3 custom-breakpoint:py-3.5 bg-light-grayish-blue w-full xl:w-40 justify-between">
-                      <span class="decrease cursor-pointer inline-block">                          
+                      <span class="decrease cursor-pointer inline-block" @click="decreaseProductQuantity">                          
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="#FF7E1B" viewBox="0 0 24 24" stroke="#FF7E1B">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />
                         </svg>
                       </span>
-                      <span class="number cursor-pointer custom-breakpoint2:text-lg inline-block font-bold font-Kumbh-Sans">0</span>
-                      <span class="increase cursor-pointer inline-block">                         
+                      <span class="number cursor-pointer custom-breakpoint2:text-lg inline-block font-bold font-Kumbh-Sans">{{ productQuantity }}</span>
+                      <span class="increase cursor-pointer inline-block" @click="increaseProductQuantity(product)">                         
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="#FF7E1B" viewBox="0 0 24 24" stroke="#FF7E1B">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                         </svg>
@@ -101,6 +102,7 @@
 <script setup>
 import { onMounted, computed, ref } from 'vue';
 import { useStore } from 'vuex';
+
 // props
 const props = defineProps({
     product:{
@@ -117,6 +119,7 @@ const store = useStore();
 // reactive variable
 const imageIndex = ref(0);
 const openModal = ref(false);
+// const productQuantity = ref(0);
 
 // computed methods
 const discount = computed(()=>{
@@ -126,7 +129,17 @@ const getImgUrl = computed(()=>{
     return `/images/${props.product.images[imageIndex.value]}`;
 })
 
-// methods
+const productQuantity = computed(()=>{
+ const product = store.getters['cart/cartProducts'].find((cartItem)=> cartItem.id === props.product.id);
+ if(product){
+   return product.quantity;
+ }
+ else{
+   return 0;
+ }
+});
+
+// // methods
 const changeMainDisplayImage = (index)=>{
     imageIndex.value = index;
 }
@@ -149,12 +162,22 @@ const toggleModal = ()=>{
 }
 const addProductToCart = (prod)=>{
   store.dispatch('cart/addProductToCart',prod);
+  // productQuantity.value = 1;
 }
+const increaseProductQuantity = (prod)=>{
+  store.dispatch('cart/addProductToCart',prod);
+}
+// const decreaseProductQuantity = ()=>{
+//   if(productQuantity.value >= 0){
+//     productQuantity.value--;
+//     console.log(store.commit('cart/decreaseItemQuantity', props.product));
+//   }
+// }
 
 // lifecycle hooks
-// onMounted(()=>{
-   
-// })
+onMounted(()=>{
+   console.log(props.product);
+})
 </script>
 
 <style scoped>
