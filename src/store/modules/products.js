@@ -33,10 +33,10 @@ const mutations = {
     const product = state.products.find((product) => product.id === id);
     product.inventory++;
   },
-  // resetProductInventory(state, { id }) {
-  //   const product = state.products.find((product) => product.id === id);
-  //   product.inventory = 5;
-  // },
+  resetProductInventory(state, { id }) {
+    const product = state.products.find((product) => product.id === id);
+    product.inventory = 5;
+  },
 };
 
 export default {

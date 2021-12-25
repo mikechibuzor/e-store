@@ -68,6 +68,25 @@ const actions = {
       );
     }
   },
+
+  removeProductFromCart({ state, commit }, { id }) {
+    state.items = state.items.filter((item) => item.id !== id);
+    commit("products/resetProductInventory", { id }, { root: true });
+  },
+
+  decrementItemQuantity({ state, commit, dispatch }, { id }) {
+    const cartItem = state.items.find((item) => item.id === id);
+    if (!cartItem) {
+      return;
+    }
+    if (cartItem.quantity > 1) {
+      cartItem.quantity--;
+      // add 1 item from stock
+      commit("products/incrementProductInventory", { id }, { root: true });
+    } else {
+      dispatch("removeProductFromCart", { id });
+    }
+  },
 };
 
 // mutations
@@ -77,15 +96,6 @@ const mutations = {
       id,
       quantity: 1,
     });
-  },
-
-  removeProductFromCart(state, { id }) {
-    state.items = state.items.filter((item) => item.id !== id);
-    commit(
-      "products/resetProductInventory",
-      { id: product.id },
-      { root: true }
-    );
   },
 
   incrementItemQuantity(state, { id }) {

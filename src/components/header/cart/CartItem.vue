@@ -47,7 +47,7 @@ const discountPrice = computed(()=>{
 })
 
 const removeProduct = computed(()=>{
-    store.commit('cart/removeProductFromCart', props.item)
+    store.dispatch('cart/removeProductFromCart', props.item)
 })
 
 // methods

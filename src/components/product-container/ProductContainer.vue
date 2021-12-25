@@ -36,7 +36,7 @@
           <div class="buttons pb-10 xl:pb-0 w-full grid gap-y-4 xl:flex items-center mt-6 custom-breakpoint:mt-8">
               <div class="counter xl:mr-3 custom-breakpoint:mr-5">
                   <p class="flex items-center px-4 rounded-lg shadow-sm py-3.5 xl:py-3 custom-breakpoint:py-3.5 bg-light-grayish-blue w-full xl:w-40 justify-between">
-                      <span class="decrease cursor-pointer inline-block" @click="decreaseProductQuantity">                          
+                      <span class="decrease cursor-pointer inline-block" @click="decreaseProductQuantity(product)">                          
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="#FF7E1B" viewBox="0 0 24 24" stroke="#FF7E1B">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 12H6" />
                         </svg>
@@ -165,14 +165,12 @@ const addProductToCart = (prod)=>{
   // productQuantity.value = 1;
 }
 const increaseProductQuantity = (prod)=>{
+  // naming might make this seem confusing but trust that they work the same way
   store.dispatch('cart/addProductToCart',prod);
 }
-// const decreaseProductQuantity = ()=>{
-//   if(productQuantity.value >= 0){
-//     productQuantity.value--;
-//     console.log(store.commit('cart/decreaseItemQuantity', props.product));
-//   }
-// }
+const decreaseProductQuantity = (prod)=>{
+  store.dispatch('cart/decrementItemQuantity', prod);
+}
 
 // lifecycle hooks
 onMounted(()=>{
