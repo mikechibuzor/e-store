@@ -30,11 +30,14 @@ const getters = {
     return getters.cartProducts.reduce((total, product) => {
       return (
         total +
-        Math.floor(product.price - product.price * (product.discount / 100))
+        Math.floor(
+          (product.price - product.price * (product.discount / 100)) *
+            product.quantity
+        )
       );
     }, 0);
   },
-  
+
   getCheckoutStatus(state) {
     return state.checkoutStatus;
   },
