@@ -1,5 +1,5 @@
 <template>
-  <div class="checkout-container relative  xl:px-32 custom-breakpoint1:px-48 pt-10 pb-10">
+  <div class="checkout-container relative overflow-x-hidden  xl:px-32 custom-breakpoint1:px-48 pt-10 pb-10">
       <div class="first-half px-6">
           <h3 class="text-3xl font-bold text-black mb-8">Your Cart</h3>
           <ul>
@@ -9,7 +9,7 @@
       </div>
       <div class="second-half px-6 xl:w-3/5 bg-gray-100 rounded-md xl:px-12 pt-10 pb-8 shadow">
           <h5 class="font-medium font-Kumbh-Sans tracking-wider text-2xl">Card Details</h5>
-          <form action="" class="mt-10" @submit.prevent="checkoutHandler">
+          <form action="" class="mt-10 w-full" @submit.prevent="checkoutHandler">
               <div class="form-element mb-6">
                   <div class="ch-cont flex gap-4">
                     <label for="card-type-master" class="check-container cursor-pointer h-10 w-28 relative">
@@ -35,17 +35,17 @@
 
               <div class="form-element flex flex-col mb-6">
                   <label for="card-number" class="text-sm mb-2">Card Number</label>
-                  <input type="text" name="card-number" id="card-number" class="w-full px-4 py-2 rounded outline-none border-none">
+                  <input type="text" name="card-number" id="card-number" class="w-full px-4 py-3 xl:py-2 rounded outline-none border-none">
               </div>
 
               <div class="form-group mb-6 flex gap-4">
                   <div class="form-element flex flex-col mb-6">
                   <label for="card-number" class="text-sm mb-2">Expiry Date</label>
-                  <input type="text" name="card-number" id="card-number" class="w-full px-4 py-2 rounded outline-none border-none">
+                  <input type="text" name="card-number" id="card-number" class="w-full px-4 py-3 xl:py-2 rounded outline-none border-none">
               </div>
               <div class="form-element flex flex-col mb-6">
                   <label for="card-number" class="text-sm mb-2">Cvv</label>
-                  <input type="text" name="card-number" id="card-number" class="w-full px-4 py-2 rounded outline-none border-none">
+                  <input type="text" name="card-number" id="card-number" class="w-full px-4 py-3 xl:py-2 rounded outline-none border-none">
               </div>
               </div>
               <div class="form-element">

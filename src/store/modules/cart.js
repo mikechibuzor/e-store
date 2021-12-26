@@ -34,6 +34,7 @@ const getters = {
       );
     }, 0);
   },
+  
   getCheckoutStatus(state) {
     return state.checkoutStatus;
   },
